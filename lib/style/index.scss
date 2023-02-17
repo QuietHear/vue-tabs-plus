@@ -1,0 +1,286 @@
+/*
+ * @Author: aFei
+ * @Date: 2023-02-09 16:27:24
+*/
+/*
+ * @LastEditors: aFei
+ * @LastEditTime: 2023-02-17 16:30:38
+*/
+html.dark .vue-tabs-plus {
+  --box-bg           : rgb(24, 24, 28);
+  border-bottom-color: rgb(24, 24, 28);
+  --chrome-bg-hover  : #3f3c37;
+  --chrome-bg-active : #1d3253;
+
+  &.chrome-tab {
+    .item {
+      color: rgba(255, 255, 255, 0.82) !important;
+
+      &:after {
+        background: #fff;
+      }
+    }
+  }
+
+  .item {
+    color       : rgba(255, 255, 255, 0.82);
+    border-color: rgba(255, 255, 255, 0.24);
+
+    &.active,
+    &:hover {
+      color: var(--item-active-color);
+    }
+  }
+}
+
+.vue-tabs-plus {
+  --box-bg             : #fff;
+  --box-height         : 44px;
+  --item-active-color  : rgba(24, 144, 255, 1);
+  --item-icon-color    : rgb(156, 163, 175);
+  --card-height        : 30px;
+  --card-active-color-1: rgba(24, 144, 255, 0.1);
+  --card-active-color-3: rgba(24, 144, 255, 0.3);
+  --chrome-height      : 36px;
+  --chrome-bg-hover    : #dee1e6;
+  --chrome-bg-active   : #c5d7ff;
+  display              : flex;
+  align-items          : center;
+  padding              : 0 20px;
+  box-shadow           : 0 1px 2px #00152914;
+  border-bottom        : 1px solid #cbcbcd;
+  background           : var(--box-bg);
+  height               : var(--box-height);
+  position             : relative;
+
+  &.chrome-tab {
+    align-items: flex-end;
+
+    .item {
+      height     : var(--chrome-height);
+      margin-left: 0;
+      border     : 0;
+      padding    : 0 10px;
+
+      &:after {
+        content   : '';
+        position  : absolute;
+        width     : 1px;
+        height    : calc(var(--chrome-height) / 2);
+        top       : calc(var(--chrome-height) / 4);
+        right     : -0.5px;
+        background: #1f2225;
+      }
+
+      &.active,
+      &:hover {
+        background   : var(--chrome-bg-hover);
+        border-radius: 8px 8px 0 0;
+        color        : #000;
+
+        &:before {
+          content   : '';
+          left      : 0;
+          left      : -8px;
+          bottom    : 0;
+          position  : absolute;
+          width     : 8px;
+          height    : 8px;
+          background: var(--chrome-bg-hover);
+          z-index   : 1;
+          clip-path : polygon(100% 0%, 95% 36%, 90% 43%, 80% 60%, 70% 72%, 60% 80%, 50% 87%, 40% 92%, 30% 95%, 20% 98%, 10% 99%, 0% 100%, 100% 100%);
+        }
+
+        &:after {
+          top       : auto;
+          right     : -8px;
+          bottom    : 0;
+          width     : 8px;
+          height    : 8px;
+          background: var(--chrome-bg-hover) !important;
+          z-index   : 1;
+          clip-path : polygon(0% 0%, 5% 29%, 10% 43%, 20% 60%, 30% 72%, 40% 80%, 50% 87%, 60% 92%, 70% 95%, 80% 98%, 90% 99%, 100% 100%, 0% 100%);
+        }
+
+        .icon-box {
+          color: var(--item-icon-color);
+
+          &:hover {
+            background: var(--item-icon-color);
+            color     : #fff;
+          }
+        }
+      }
+
+      &.active {
+        background: var(--chrome-bg-active);
+        color     : #333639;
+
+        &:before,
+        &:after {
+          background: var(--chrome-bg-active) !important;
+        }
+
+        .icon-box {
+          color: var(--item-active-color);
+
+          &:hover {
+            background: var(--item-active-color);
+          }
+        }
+      }
+    }
+  }
+
+  .go-left,
+  .go-right {
+    position       : absolute;
+    cursor         : pointer;
+    color          : #000;
+    font-size      : 18px;
+    width          : 18px;
+    height         : 18px;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    top            : calc(50% - 9px);
+    user-select    : none;
+
+    &:hover {
+      color: var(--item-active-color);
+    }
+
+    &.is-dis {
+      cursor: default;
+      color : rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .go-left {
+    left: 2px;
+  }
+
+  .go-right {
+    right: 2px;
+  }
+
+  .item-box {
+    display    : flex;
+    width      : 100%;
+    align-items: center;
+    position   : relative;
+    padding    : 0 10px;
+    overflow   : hidden;
+  }
+
+  .item {
+    height         : var(--card-height);
+    display        : inline-flex;
+    justify-content: center;
+    align-items    : center;
+    position       : relative;
+    cursor         : pointer;
+    z-index        : 1;
+    border         : 1px solid #e5e7eb;
+    border-radius  : 2px;
+    margin-left    : 10px;
+    padding        : 0 6px 0 14px;
+    user-select    : none;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &.active,
+    &:hover {
+      border-color: var(--card-active-color-3) !important;
+      color       : var(--item-active-color);
+
+      .icon-box {
+        color: var(--item-active-color);
+      }
+    }
+
+    &.active {
+      z-index   : 2;
+      background: var(--card-active-color-1);
+    }
+
+    .menu-icon {
+      margin-right: 10px;
+    }
+
+    .text-box {
+      min-width    : 50px;
+      max-width    : 100px;
+      overflow     : hidden;
+      text-overflow: ellipsis;
+      white-space  : nowrap;
+    }
+
+    .icon-box {
+      width          : 16px;
+      height         : 16px;
+      margin-left    : 18px;
+      display        : flex;
+      justify-content: center;
+      align-items    : center;
+      border-radius  : 50%;
+      color          : var(--item-icon-color);
+      font-size      : 14px;
+      transition     : all ease-in-out 0.3s;
+
+      &:hover {
+        background: var(--item-active-color);
+        color     : #fff;
+      }
+    }
+  }
+
+  .tabs-pop {
+    position     : fixed;
+    padding      : 4px;
+    background   : #fff;
+    border-radius: 3px;
+    margin-top   : 6px;
+    box-shadow   : 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+    z-index      : 2;
+
+    .tabs-pop-item {
+      height         : 34px;
+      line-height    : 34px;
+      cursor         : pointer;
+      display        : flex;
+      justify-content: center;
+      align-items    : center;
+      padding-right  : 10px;
+      transition     : background-color .3s ease-in-out;
+
+      &:hover {
+        background: rgb(243, 243, 245);
+      }
+
+      &.dis {
+        cursor    : not-allowed;
+        opacity   : 0.5;
+        background: #fff;
+      }
+
+      .icon {
+        width          : 36px;
+        display        : inline-flex;
+        justify-content: center;
+        align-items    : center;
+        position       : relative;
+        fill           : currentColor;
+        color          : rgb(51, 54, 57);
+        font-size      : 16px;
+
+        svg {
+          height: 1em;
+          width : 1em;
+        }
+      }
+    }
+  }
+}
