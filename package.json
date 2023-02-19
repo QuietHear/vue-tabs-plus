@@ -1,7 +1,7 @@
 {
   "name": "vue-tabs-plus",
   "description": "多页签 vue3版组件",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "author": "aFei <1106728884@qq.com>",
   "license": "MIT",
   "main": "dist/vue-tabs-plus.umd.js",

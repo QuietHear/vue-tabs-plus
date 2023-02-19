@@ -4,7 +4,7 @@
 */
 /*
  * @LastEditors: aFei
- * @LastEditTime: 2023-02-17 16:30:38
+ * @LastEditTime: 2023-02-19 14:32:22
 */
 html.dark .vue-tabs-plus {
   --box-bg           : rgb(24, 24, 28);
@@ -68,7 +68,7 @@ html.dark .vue-tabs-plus {
         width     : 1px;
         height    : calc(var(--chrome-height) / 2);
         top       : calc(var(--chrome-height) / 4);
-        right     : -0.5px;
+        right     : -1px;
         background: #1f2225;
       }
 
