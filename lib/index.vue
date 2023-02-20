@@ -4,7 +4,7 @@
 */
 /*
  * @LastEditors: aFei
- * @LastEditTime: 2023-02-17 17:22:05
+ * @LastEditTime: 2023-02-20 15:04:07
 */
 <template>
   <div :class="['vue-tabs-plus', type !== 'button' ? 'chrome-tab' : '']">
@@ -138,8 +138,6 @@
   </div>
 </template>
 <script setup>
-import { ref, watch, nextTick, onMounted, onBeforeUnmount } from "vue";
-import { useRoute, useRouter } from "vue-router";
 const emit = defineEmits(['reloadPage']);
 const props = defineProps({
   // tab样式类型
