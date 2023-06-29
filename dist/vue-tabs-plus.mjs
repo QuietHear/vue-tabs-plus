@@ -1,158 +1,191 @@
-import { ref as g, watch as X, nextTick as D, onMounted as re, onBeforeUnmount as de, resolveComponent as he, openBlock as a, createElementBlock as c, normalizeClass as y, unref as i, Fragment as V, createBlock as v, resolveDynamicComponent as w, normalizeProps as x, mergeProps as u, withCtx as $, toDisplayString as C, createCommentVNode as I, createElementVNode as d, renderList as ve, withModifiers as ne, normalizeStyle as fe, createTextVNode as P, createStaticVNode as G } from "vue";
-import { useRoute as ge, useRouter as me } from "vue-router";
-const ye = ["title", "onClick", "onContextmenu"], ke = { class: "text-box" }, pe = ["onClick"], we = /* @__PURE__ */ G('<div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="32" stroke-dashoffset="32" d="M12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18C8.68629 18 6 15.3137 6 12V9.5"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="32;0"></animate></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M6 9L3 12M6 9L9 12"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"></animate></path></g></svg></div>', 1), Ie = /* @__PURE__ */ G('<div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path d="M5 5L12 5L19 5"><animate fill="freeze" attributeName="d" dur="0.4s" values="M5 5L12 5L19 5;M5 5L12 12L19 5"></animate></path><path d="M5 12H19"><animate fill="freeze" attributeName="d" dur="0.4s" values="M5 12H19;M12 12H12"></animate></path><path d="M5 19L12 19L19 19"><animate fill="freeze" attributeName="d" dur="0.4s" values="M5 19L12 19L19 19;M5 19L12 12L19 19"></animate></path></g></svg></div>', 1), be = /* @__PURE__ */ G('<div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="20" stroke-dashoffset="20" d="M12 3V21"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="20;0"></animate></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M22 12H15.5M2 12H8.5"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.4s" dur="0.2s" values="8;0"></animate></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M15 12L18 15M9 12L6 15M15 12L18 9M9 12L6 9"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"></animate></path></g></svg></div>', 1), Le = /* @__PURE__ */ d("div", { class: "icon" }, [
-  /* @__PURE__ */ d("svg", {
+import { resolveComponent as re, openBlock as s, createBlock as b, resolveDynamicComponent as ee, normalizeProps as te, mergeProps as B, withCtx as ue, createElementBlock as f, toDisplayString as q, ref as d, watch as z, nextTick as V, onMounted as de, onBeforeUnmount as ve, normalizeClass as h, unref as o, createCommentVNode as g, createElementVNode as r, Fragment as he, renderList as fe, withModifiers as ae, normalizeStyle as pe, createTextVNode as O, createStaticVNode as J } from "vue";
+import { useRoute as me, useRouter as ge } from "vue-router";
+const P = {
+  __name: "icon",
+  props: {
+    iconObj: {
+      type: Object,
+      requured: !0
+    }
+  },
+  setup(l) {
+    return (N, Y) => {
+      const p = re("el-icon");
+      return l.iconObj.type === "custom" ? (s(), b(ee(l.iconObj.icon), te(B({ key: 0 }, l.iconObj.attrs)), null, 16)) : l.iconObj.type === "el" ? (s(), b(p, te(B({ key: 1 }, l.iconObj.attrs)), {
+        default: ue(() => [
+          (s(), b(ee(l.iconObj.icon)))
+        ]),
+        _: 1
+      }, 16)) : l.iconObj.type === "iconfont" ? (s(), f("i", B({
+        key: 2,
+        class: ["icon iconfont", "icon-" + l.iconObj.icon]
+      }, l.iconObj.attrs), null, 16)) : (s(), f("i", B({
+        key: 3,
+        class: l.iconObj.type
+      }, l.iconObj.attrs), q(l.iconObj.icon), 17));
+    };
+  }
+};
+const be = ["title", "onClick", "onContextmenu"], we = { class: "text-box" }, ke = ["onClick"], ye = /* @__PURE__ */ J('<div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="32" stroke-dashoffset="32" d="M12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18C8.68629 18 6 15.3137 6 12V9.5"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="32;0"></animate></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M6 9L3 12M6 9L9 12"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"></animate></path></g></svg></div>', 1), Le = /* @__PURE__ */ J('<div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path d="M5 5L12 5L19 5"><animate fill="freeze" attributeName="d" dur="0.4s" values="M5 5L12 5L19 5;M5 5L12 12L19 5"></animate></path><path d="M5 12H19"><animate fill="freeze" attributeName="d" dur="0.4s" values="M5 12H19;M12 12H12"></animate></path><path d="M5 19L12 19L19 19"><animate fill="freeze" attributeName="d" dur="0.4s" values="M5 19L12 19L19 19;M5 19L12 12L19 19"></animate></path></g></svg></div>', 1), Me = /* @__PURE__ */ J('<div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="20" stroke-dashoffset="20" d="M12 3V21"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="20;0"></animate></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M22 12H15.5M2 12H8.5"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.4s" dur="0.2s" values="8;0"></animate></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M15 12L18 15M9 12L6 15M15 12L18 9M9 12L6 9"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"></animate></path></g></svg></div>', 1), xe = /* @__PURE__ */ r("div", { class: "icon" }, [
+  /* @__PURE__ */ r("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     width: "32",
     height: "32",
     viewBox: "0 0 24 24"
   }, [
-    /* @__PURE__ */ d("path", {
+    /* @__PURE__ */ r("path", {
       fill: "currentColor",
       d: "M11.92 19.92L4 12l7.92-7.92l1.41 1.42l-5.5 5.5H22v2H7.83l5.51 5.5l-1.42 1.42M4 12V2H2v20h2V12Z"
     })
   ])
-], -1), Me = /* @__PURE__ */ d("div", { class: "icon" }, [
-  /* @__PURE__ */ d("svg", {
+], -1), Ce = /* @__PURE__ */ r("div", { class: "icon" }, [
+  /* @__PURE__ */ r("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     width: "32",
     height: "32",
     viewBox: "0 0 24 24"
   }, [
-    /* @__PURE__ */ d("path", {
+    /* @__PURE__ */ r("path", {
       fill: "currentColor",
       d: "M12.08 4.08L20 12l-7.92 7.92l-1.41-1.42l5.5-5.5H2v-2h14.17l-5.5-5.5l1.41-1.42M20 12v10h2V2h-2v10Z"
     })
   ])
-], -1), xe = {
+], -1), Ie = {
   __name: "index",
   props: {
+    // tab样式类型
     type: {
       type: String,
       default: "button"
     },
+    // 标题是否开启国际化
     i18n: {
       type: Boolean,
       default: !1
     },
+    // 同一个路由允许存在多页签（fullPath不同）
     multiple: {
       type: Boolean,
       default: !1
     },
+    // 向左移动图标
     leftIcon: {
       type: Object,
       default: () => ({
-        icon: "\uFF1C"
+        icon: "＜"
       })
     },
+    // 向右移动图标
     rightIcon: {
       type: Object,
       default: () => ({
-        icon: "\uFF1E"
+        icon: "＞"
       })
     },
+    // 关闭图标
     closeIcon: {
       type: Object,
       default: () => ({
         icon: "x"
       })
     },
+    // 移动到100%需要的步数
     stepPercentage: {
       type: Number,
       default: 10
     }
   },
   emits: ["reloadPage"],
-  setup(n, { expose: A, emit: oe }) {
-    const b = n, H = ge(), N = me(), ae = (e, t) => {
-      let s = e.matches || e.webkitMatchesSelector || e.mozMatchesSelector || e.msMatchesSelector;
-      for (; e && !s.call(e, t); )
+  setup(l, { expose: N, emit: Y }) {
+    const p = l, R = me(), L = ge(), le = (e, t) => {
+      let a = e.matches || e.webkitMatchesSelector || e.mozMatchesSelector || e.msMatchesSelector;
+      for (; e && !a.call(e, t); )
         e = e.parentElement;
       return e;
-    }, le = (e, t) => {
-      let s = [], o = (z) => {
-        z.forEach((p) => {
-          se(p, t) && s.push(p), p.childNodes && p.childNodes.length > 0 && o(p.childNodes);
+    }, ne = (e, t) => {
+      let a = [], y = (j) => {
+        j.forEach((I) => {
+          oe(I, t) && a.push(I), I.childNodes && I.childNodes.length > 0 && y(I.childNodes);
         });
       };
-      return o(e.childNodes), s;
-    }, se = (e, t) => e.classList ? e.classList.contains(t) : new RegExp("\\s" + t + "\\s").test(" " + e.className + " "), L = (e) => {
+      return y(e.childNodes), a;
+    }, oe = (e, t) => e.classList ? e.classList.contains(t) : new RegExp("\\s" + t + "\\s").test(" " + e.className + " "), w = (e) => {
       let t = e instanceof Array ? [] : {};
-      for (let s in e)
-        t[s] = typeof e[s] == "object" ? L(e[s]) : e[s];
+      for (let a in e)
+        t[a] = typeof e[a] == "object" ? w(e[a]) : e[a];
       return t;
-    }, ie = (e) => window.btoa(encodeURIComponent(JSON.stringify(e))), ce = (e) => JSON.parse(decodeURIComponent(window.atob(e))), l = g([]);
-    X(
-      () => l.value.length,
+    }, se = (e) => window.btoa(encodeURIComponent(JSON.stringify(e))), ie = (e) => JSON.parse(decodeURIComponent(window.atob(e))), n = d([]);
+    z(
+      () => n.value.length,
       () => {
-        sessionStorage.setItem("_VUETABSARR_", ie(l.value));
+        sessionStorage.setItem("_VUETABSARR_", se(n.value));
       }
-    ), X(
-      H,
+    ), z(
+      R,
       () => {
-        _(H);
+        K(R);
       }
     );
-    const m = g({}), R = g(!1), S = g(!1), T = g(!1), U = g(!1);
-    let E = 0, W = 0, O = 0, J = 0, Y = 0;
-    const f = g(null), k = () => {
-      h.value = !1;
-      const e = le(f.value, "item");
-      l.value.forEach((t, s) => {
-        s === 0 ? (t.btnMoveX = 0, t.chromeMoveX = 0) : (t.btnMoveX = l.value[s - 1].btnMoveX + e[s].clientWidth + 12, t.chromeMoveX = l.value[s - 1].chromeMoveX + e[s].clientWidth);
-      }), O = f.value.clientWidth - 20, E = 0, W = 0, e.forEach((t, s) => {
-        W += t.clientWidth, E += t.clientWidth + 2, s !== 0 && (E += 10);
-      }), Z();
-    }, Z = () => {
-      R.value = O < (b.type === "button" ? E : W), J = (b.type === "button" ? E : W) - O, Y = J / b.stepPercentage, R.value ? (f.value.scrollLeft = l.value.filter((e) => e.path === m.value.path)[0][b.type === "button" ? "btnMoveX" : "chromeMoveX"], K(), S.value || f.value.addEventListener("wheel", q), S.value = !0) : (S.value && f.value.removeEventListener("wheel", q), S.value = !1);
+    const v = d({}), S = d(!1), M = d(!1), W = d(!1), X = d(!1);
+    let x = 0, E = 0, $ = 0, D = 0, A = 0;
+    const u = d(null), m = () => {
+      c.value = !1;
+      const e = ne(u.value, "item");
+      n.value.forEach((t, a) => {
+        a === 0 ? (t.btnMoveX = 0, t.chromeMoveX = 0) : (t.btnMoveX = n.value[a - 1].btnMoveX + e[a].clientWidth + 12, t.chromeMoveX = n.value[a - 1].chromeMoveX + e[a].clientWidth);
+      }), $ = u.value.clientWidth - 20, x = 0, E = 0, e.forEach((t, a) => {
+        E += t.clientWidth, x += t.clientWidth + 2, a !== 0 && (x += 10);
+      }), H();
+    }, H = () => {
+      S.value = $ < (p.type === "button" ? x : E), D = (p.type === "button" ? x : E) - $, A = D / p.stepPercentage, S.value ? (u.value.scrollLeft = n.value.filter((e) => e.path === v.value.path)[0][p.type === "button" ? "btnMoveX" : "chromeMoveX"], Z(), M.value || u.value.addEventListener("wheel", T), M.value = !0) : (M.value && u.value.removeEventListener("wheel", T), M.value = !1);
     };
-    X(
-      () => b.type,
-      () => Z()
+    z(
+      () => p.type,
+      () => H()
     );
-    const K = () => {
-      T.value = f.value.scrollLeft === 0, U.value = f.value.scrollLeft === J;
-    }, M = (e = !0) => {
-      f.value.scrollLeft = f.value.scrollLeft + (e ? Y : -Y), K();
-    }, q = (e) => {
-      h.value = !1, e.wheelDelta ? e.wheelDelta > 0 ? M(!1) : e.wheelDelta < 0 && M() : e.detail && (e.wheelDelta < 0 ? M(!1) : e.wheelDelta > 0 && M());
-    }, h = g(!1);
-    X(
-      h,
+    const Z = () => {
+      W.value = u.value.scrollLeft === 0, X.value = u.value.scrollLeft === D;
+    }, k = (e = !0) => {
+      u.value.scrollLeft = u.value.scrollLeft + (e ? A : -A), Z();
+    }, T = (e) => {
+      c.value = !1, e.wheelDelta ? e.wheelDelta > 0 ? k(!1) : e.wheelDelta < 0 && k() : e.detail && (e.wheelDelta < 0 ? k(!1) : e.wheelDelta > 0 && k());
+    }, c = d(!1);
+    z(
+      c,
       () => {
-        h.value ? document.body.addEventListener("click", F) : document.body.removeEventListener("click", F);
+        c.value ? document.body.addEventListener("click", U) : document.body.removeEventListener("click", U);
       }
     );
-    const Q = g(0), j = g(0), r = g({
+    const F = d(0), G = d(0), i = d({
       data: {},
       index: 0
-    }), ue = (e, t) => {
-      r.value.data = L(e), r.value.index = t, Q.value = event.pageX + 120 > document.body.clientWidth ? document.body.clientWidth - 120 : event.pageX, j.value = event.pageY, h.value = !0;
-    }, F = () => {
-      ae(event.target, ".tabs-pop") === null && (h.value = !1);
-    }, B = (e) => {
+    }), ce = (e, t) => {
+      i.value.data = w(e), i.value.index = t, F.value = event.pageX + 120 > document.body.clientWidth ? document.body.clientWidth - 120 : event.pageX, G.value = event.pageY, c.value = !0;
+    }, U = () => {
+      le(event.target, ".tabs-pop") === null && (c.value = !1);
+    }, C = (e) => {
       switch (e) {
         case 1:
-          h.value = !1, oe("reloadPage");
+          c.value = !1, Y("reloadPage");
           break;
         case 2:
-          h.value = !1, ee(r.value.data, r.value.index);
+          c.value = !1, Q(i.value.data, i.value.index);
           break;
         case 3:
-          l.value = [L(r.value.data)], h.value = !1, l.value.findIndex((t) => t.path === m.value.path) === -1 && N.push(r.value.data.path);
+          n.value = [w(i.value.data)], c.value = !1, n.value.findIndex((t) => t.path === v.value.path) === -1 && L.push(i.value.data.path);
           break;
         case 4:
-          l.value = L(l.value.slice(r.value.index)), l.value.findIndex((t) => t.path === m.value.path) === -1 ? (h.value = !1, N.push(r.value.data.path)) : D(() => {
-            k();
+          n.value = w(n.value.slice(i.value.index)), n.value.findIndex((t) => t.path === v.value.path) === -1 ? (c.value = !1, L.push(i.value.data.path)) : V(() => {
+            m();
           });
           break;
         case 5:
-          l.value = L(l.value.slice(0, r.value.index + 1)), l.value.findIndex((t) => t.path === m.value.path) === -1 ? (h.value = !1, N.push(r.value.data.path)) : D(() => {
-            k();
+          n.value = w(n.value.slice(0, i.value.index + 1)), n.value.findIndex((t) => t.path === v.value.path) === -1 ? (c.value = !1, L.push(i.value.data.path)) : V(() => {
+            m();
           });
           break;
       }
-    }, _ = (e) => {
+    }, K = (e) => {
       const t = {
         label: e.meta.title,
         supLabel: e.query.tabsSupTit || "",
@@ -160,168 +193,122 @@ const ye = ["title", "onClick", "onContextmenu"], ke = { class: "text-box" }, pe
         path: e.fullPath,
         icon: e.meta.icon
       };
-      l.value.findIndex((s) => b.multiple ? s.path === t.path : s.name === t.name) === -1 ? (l.value.push(t), te(t)) : te(t, !1);
-    }, ee = (e, t) => {
-      l.value.splice(t, 1), D(() => {
-        e.path === m.value.path ? N.push(l.value[t === l.value.length ? t - 1 : t].path) : k();
+      n.value.findIndex((a) => p.multiple ? a.path === t.path : a.name === t.name) === -1 ? (n.value.push(t), _(t)) : _(t, !1);
+    }, Q = (e, t) => {
+      n.value.splice(t, 1), V(() => {
+        e.path === v.value.path ? L.push(n.value[t === n.value.length ? t - 1 : t].path) : m();
       });
-    }, te = (e, t = !0) => {
-      m.value = L(e), t ? D(() => {
-        k();
-      }) : Z();
+    }, _ = (e, t = !0) => {
+      v.value = w(e), t ? V(() => {
+        m();
+      }) : H();
     };
-    return sessionStorage.getItem("_VUETABSARR_") && (l.value = ce(sessionStorage.getItem("_VUETABSARR_"))), _(H), re(() => {
-      k(), window.addEventListener("resize", k);
-    }), de(() => {
-      window.removeEventListener("resize", k), document.body.removeEventListener("click", F), sessionStorage.removeItem("_VUETABSARR_"), S.value && f.value.removeEventListener("wheel", q);
-    }), A({ dealSize: k }), (e, t) => {
-      const s = he("el-icon");
-      return a(), c("div", {
-        class: y(["vue-tabs-plus", n.type !== "button" ? "chrome-tab" : ""])
+    return sessionStorage.getItem("_VUETABSARR_") && (n.value = ie(sessionStorage.getItem("_VUETABSARR_"))), K(R), de(() => {
+      m(), window.addEventListener("resize", m);
+    }), ve(() => {
+      window.removeEventListener("resize", m), document.body.removeEventListener("click", U), sessionStorage.removeItem("_VUETABSARR_"), M.value && u.value.removeEventListener("wheel", T);
+    }), N({ dealSize: m }), (e, t) => (s(), f("div", {
+      class: h(["vue-tabs-plus", l.type !== "button" ? "chrome-tab" : ""])
+    }, [
+      o(S) ? (s(), f("div", {
+        key: 0,
+        class: h(["go-left", o(W) ? "is-dis" : ""]),
+        onClick: t[0] || (t[0] = (a) => o(W) ? null : k(!1))
       }, [
-        i(R) ? (a(), c("div", {
+        l.leftIcon && (l.leftIcon.icon || l.leftIcon.type) ? (s(), b(P, {
           key: 0,
-          class: y(["go-left", i(T) ? "is-dis" : ""]),
-          onClick: t[0] || (t[0] = (o) => i(T) ? null : M(!1))
+          iconObj: l.leftIcon
+        }, null, 8, ["iconObj"])) : g("", !0)
+      ], 2)) : g("", !0),
+      r("div", {
+        ref_key: "itemBox",
+        ref: u,
+        class: "item-box"
+      }, [
+        (s(!0), f(he, null, fe(o(n), (a, y) => (s(), f("div", {
+          class: h(["item", a.path === o(v).path ? "active" : ""]),
+          title: (l.i18n ? e.$t(a.label) : a.label) + a.supLabel,
+          key: y,
+          onClick: (j) => a.path === o(v).path ? null : o(L).push(a.path),
+          onContextmenu: ae((j) => ce(a, y), ["prevent"])
         }, [
-          n.leftIcon && (n.leftIcon.icon || n.leftIcon.type) ? (a(), c(V, { key: 0 }, [
-            n.leftIcon.type === "custom" ? (a(), v(w(n.leftIcon.icon), x(u({ key: 0 }, n.leftIcon.attrs)), null, 16)) : n.leftIcon.type === "el" ? (a(), v(s, x(u({ key: 1 }, n.leftIcon.attrs)), {
-              default: $(() => [
-                (a(), v(w(n.leftIcon.icon)))
-              ]),
-              _: 1
-            }, 16)) : n.leftIcon.type === "iconfont" ? (a(), c("i", u({
-              key: 2,
-              class: ["icon iconfont", "icon-" + n.leftIcon.icon]
-            }, n.leftIcon.attrs), null, 16)) : (a(), c("i", u({
-              key: 3,
-              class: n.leftIcon.type
-            }, n.leftIcon.attrs), C(n.leftIcon.icon), 17))
-          ], 64)) : I("", !0)
-        ], 2)) : I("", !0),
-        d("div", {
-          ref_key: "itemBox",
-          ref: f,
-          class: "item-box"
-        }, [
-          (a(!0), c(V, null, ve(i(l), (o, z) => (a(), c("div", {
-            class: y(["item", o.path === i(m).path ? "active" : ""]),
-            title: (n.i18n ? e.$t(o.label) : o.label) + o.supLabel,
-            key: z,
-            onClick: (p) => o.path === i(m).path ? null : i(N).push(o.path),
-            onContextmenu: ne((p) => ue(o, z), ["prevent"])
-          }, [
-            o.icon && (o.icon.icon || o.icon.type) ? (a(), c(V, { key: 0 }, [
-              o.icon.type === "custom" ? (a(), v(w(o.icon.icon), u({
-                key: 0,
-                class: "menu-icon"
-              }, o.icon.attrs), null, 16)) : o.icon.type === "el" ? (a(), v(s, u({
-                key: 1,
-                class: "menu-icon"
-              }, o.icon.attrs), {
-                default: $(() => [
-                  (a(), v(w(o.icon.icon)))
-                ]),
-                _: 2
-              }, 1040)) : o.icon.type === "iconfont" ? (a(), c("i", u({
-                key: 2,
-                class: ["menu-icon icon iconfont", "icon-" + o.icon.icon]
-              }, o.icon.attrs), null, 16)) : (a(), c("i", u({
-                key: 3,
-                class: ["menu-icon", o.icon.type]
-              }, o.icon.attrs), C(o.icon.icon), 17))
-            ], 64)) : I("", !0),
-            d("div", ke, C(n.i18n ? e.$t(o.label) : o.label) + C(o.supLabel), 1),
-            i(l).length > 1 ? (a(), c("div", {
-              key: 1,
-              class: "icon-box",
-              onClick: ne((p) => ee(o, z), ["stop"])
-            }, [
-              n.closeIcon && (n.closeIcon.icon || n.closeIcon.type) ? (a(), c(V, { key: 0 }, [
-                n.closeIcon.type === "custom" ? (a(), v(w(n.closeIcon.icon), x(u({ key: 0 }, n.closeIcon.attrs)), null, 16)) : n.closeIcon.type === "el" ? (a(), v(s, x(u({ key: 1 }, n.closeIcon.attrs)), {
-                  default: $(() => [
-                    (a(), v(w(n.closeIcon.icon)))
-                  ]),
-                  _: 1
-                }, 16)) : n.closeIcon.type === "iconfont" ? (a(), c("i", u({
-                  key: 2,
-                  class: ["icon iconfont", "icon-" + n.closeIcon.icon]
-                }, n.closeIcon.attrs), null, 16)) : (a(), c("i", u({
-                  key: 3,
-                  class: n.closeIcon.type
-                }, n.closeIcon.attrs), C(n.closeIcon.icon), 17))
-              ], 64)) : I("", !0)
-            ], 8, pe)) : I("", !0)
-          ], 42, ye))), 128)),
-          i(h) ? (a(), c("div", {
+          a.icon && (a.icon.icon || a.icon.type) ? (s(), b(P, {
             key: 0,
-            class: "tabs-pop",
-            style: fe({ left: i(Q) + "px", top: i(j) + "px" })
+            class: "menu-icon",
+            iconObj: a.icon
+          }, null, 8, ["iconObj"])) : g("", !0),
+          r("div", we, q(l.i18n ? e.$t(a.label) : a.label) + q(a.supLabel), 1),
+          o(n).length > 1 ? (s(), f("div", {
+            key: 1,
+            class: "icon-box",
+            onClick: ae((j) => {
+              Q(a, y), c.value = !1;
+            }, ["stop"])
           }, [
-            d("div", {
-              class: y(["tabs-pop-item", i(r).data.path === i(m).path ? "" : "dis"]),
-              onClick: t[1] || (t[1] = (o) => i(r).data.path === i(m).path ? B(1) : null)
-            }, [
-              we,
-              P(" \u91CD\u65B0\u52A0\u8F7D ")
-            ], 2),
-            d("div", {
-              class: y(["tabs-pop-item", i(l).length === 1 ? "dis" : ""]),
-              onClick: t[2] || (t[2] = (o) => B(2))
-            }, [
-              Ie,
-              P(" \u5173\u95ED\u5F53\u524D ")
-            ], 2),
-            d("div", {
-              class: y(["tabs-pop-item", i(l).length === 1 ? "dis" : ""]),
-              onClick: t[3] || (t[3] = (o) => B(3))
-            }, [
-              be,
-              P(" \u5173\u95ED\u5176\u4ED6 ")
-            ], 2),
-            d("div", {
-              class: y(["tabs-pop-item", i(r).index === 0 ? "dis" : ""]),
-              onClick: t[4] || (t[4] = (o) => B(4))
-            }, [
-              Le,
-              P(" \u5173\u95ED\u5DE6\u4FA7 ")
-            ], 2),
-            d("div", {
-              class: y(["tabs-pop-item", i(r).index === i(l).length - 1 ? "dis" : ""]),
-              onClick: t[5] || (t[5] = (o) => B(5))
-            }, [
-              Me,
-              P(" \u5173\u95ED\u53F3\u4FA7 ")
-            ], 2)
-          ], 4)) : I("", !0)
-        ], 512),
-        i(R) ? (a(), c("div", {
-          key: 1,
-          class: y(["go-right", i(U) ? "is-dis" : ""]),
-          onClick: t[6] || (t[6] = (o) => i(U) ? null : M())
+            l.closeIcon && (l.closeIcon.icon || l.closeIcon.type) ? (s(), b(P, {
+              key: 0,
+              iconObj: l.closeIcon
+            }, null, 8, ["iconObj"])) : g("", !0)
+          ], 8, ke)) : g("", !0)
+        ], 42, be))), 128)),
+        o(c) ? (s(), f("div", {
+          key: 0,
+          class: "tabs-pop",
+          style: pe({ left: o(F) + "px", top: o(G) + "px" })
         }, [
-          n.rightIcon && (n.rightIcon.icon || n.rightIcon.type) ? (a(), c(V, { key: 0 }, [
-            n.rightIcon.type === "custom" ? (a(), v(w(n.rightIcon.icon), x(u({ key: 0 }, n.rightIcon.attrs)), null, 16)) : n.rightIcon.type === "el" ? (a(), v(s, x(u({ key: 1 }, n.rightIcon.attrs)), {
-              default: $(() => [
-                (a(), v(w(n.rightIcon.icon)))
-              ]),
-              _: 1
-            }, 16)) : n.rightIcon.type === "iconfont" ? (a(), c("i", u({
-              key: 2,
-              class: ["icon iconfont", "icon-" + n.rightIcon.icon]
-            }, n.rightIcon.attrs), null, 16)) : (a(), c("i", u({
-              key: 3,
-              class: n.rightIcon.type
-            }, n.rightIcon.attrs), C(n.rightIcon.icon), 17))
-          ], 64)) : I("", !0)
-        ], 2)) : I("", !0)
-      ], 2);
-    };
+          r("div", {
+            class: h(["tabs-pop-item", o(i).data.path === o(v).path ? "" : "dis"]),
+            onClick: t[1] || (t[1] = (a) => o(i).data.path === o(v).path ? C(1) : null)
+          }, [
+            ye,
+            O(" 重新加载 ")
+          ], 2),
+          r("div", {
+            class: h(["tabs-pop-item", o(n).length === 1 ? "dis" : ""]),
+            onClick: t[2] || (t[2] = (a) => C(2))
+          }, [
+            Le,
+            O(" 关闭当前 ")
+          ], 2),
+          r("div", {
+            class: h(["tabs-pop-item", o(n).length === 1 ? "dis" : ""]),
+            onClick: t[3] || (t[3] = (a) => C(3))
+          }, [
+            Me,
+            O(" 关闭其他 ")
+          ], 2),
+          r("div", {
+            class: h(["tabs-pop-item", o(i).index === 0 ? "dis" : ""]),
+            onClick: t[4] || (t[4] = (a) => C(4))
+          }, [
+            xe,
+            O(" 关闭左侧 ")
+          ], 2),
+          r("div", {
+            class: h(["tabs-pop-item", o(i).index === o(n).length - 1 ? "dis" : ""]),
+            onClick: t[5] || (t[5] = (a) => C(5))
+          }, [
+            Ce,
+            O(" 关闭右侧 ")
+          ], 2)
+        ], 4)) : g("", !0)
+      ], 512),
+      o(S) ? (s(), f("div", {
+        key: 1,
+        class: h(["go-right", o(X) ? "is-dis" : ""]),
+        onClick: t[6] || (t[6] = (a) => o(X) ? null : k())
+      }, [
+        l.rightIcon && (l.rightIcon.icon || l.rightIcon.type) ? (s(), b(P, {
+          key: 0,
+          iconObj: l.rightIcon
+        }, null, 8, ["iconObj"])) : g("", !0)
+      ], 2)) : g("", !0)
+    ], 2));
   }
-}, Ce = [xe], Ne = {
-  install(n) {
-    Ce.forEach((A) => {
-      n.component("vueTabsPlus", A);
+}, Oe = [Ie], Ne = {
+  install(l) {
+    Oe.forEach((N) => {
+      l.component("vueTabsPlus", N);
     });
   }
 };

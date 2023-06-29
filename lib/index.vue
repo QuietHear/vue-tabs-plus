@@ -4,52 +4,28 @@
 */
 /*
  * @LastEditors: aFei
- * @LastEditTime: 2023-02-20 15:04:07
+ * @LastEditTime: 2023-06-29 17:51:01
 */
 <template>
   <div :class="['vue-tabs-plus', type !== 'button' ? 'chrome-tab' : '']">
     <div :class="['go-left', goLeftDis ? 'is-dis' : '']" @click="goLeftDis ? null : moveStep(false)" v-if="needPager">
-      <template v-if="leftIcon && (leftIcon.icon || leftIcon.type)">
-        <component :is="leftIcon.icon" v-bind="leftIcon.attrs" v-if="leftIcon.type === 'custom'" />
-        <el-icon v-bind="leftIcon.attrs" v-else-if="leftIcon.type === 'el'">
-          <component :is="leftIcon.icon" />
-        </el-icon>
-        <i :class="['icon iconfont', 'icon-' + leftIcon.icon]" v-bind="leftIcon.attrs"
-          v-else-if="leftIcon.type === 'iconfont'" />
-        <i :class="leftIcon.type" v-bind="leftIcon.attrs" v-else>{{ leftIcon.icon }}</i>
-      </template>
+      <Icon :iconObj="leftIcon" v-if="leftIcon && (leftIcon.icon || leftIcon.type)" />
     </div>
     <div ref="itemBox" class="item-box">
       <div :class="['item', item.path === activeMenu.path ? 'active' : '']"
         :title="(i18n ? $t(item.label) : item.label) + item.supLabel" v-for="(item, index) in dataList" :key="index"
         @click="item.path === activeMenu.path ? null : router.push(item.path)"
         @contextmenu.prevent="showPop(item, index)">
-        <template v-if="item.icon && (item.icon.icon || item.icon.type)">
-          <component class="menu-icon" :is="item.icon.icon" v-bind="item.icon.attrs"
-            v-if="item.icon.type === 'custom'" />
-          <el-icon class="menu-icon" v-bind="item.icon.attrs" v-else-if="item.icon.type === 'el'">
-            <component :is="item.icon.icon" />
-          </el-icon>
-          <i :class="['menu-icon icon iconfont', 'icon-' + item.icon.icon]" v-bind="item.icon.attrs"
-            v-else-if="item.icon.type === 'iconfont'" />
-          <i :class="['menu-icon', item.icon.type]" v-bind="item.icon.attrs" v-else>{{ item.icon.icon }}</i>
-        </template>
+        <Icon class="menu-icon" :iconObj="item.icon" v-if="item.icon && (item.icon.icon || item.icon.type)" />
         <div class="text-box">
-          {{ i18n? $t(item.label) : item.label }}{{ item.supLabel }}
+          {{ i18n ? $t(item.label) : item.label }}{{ item.supLabel }}
         </div>
         <!-- 关闭当前tab -->
-        <div class="icon-box" @click.stop="deleteListOne(item, index)" v-if="dataList.length > 1">
-          <template v-if="closeIcon && (closeIcon.icon || closeIcon.type)">
-            <component :is="closeIcon.icon" v-bind="closeIcon.attrs" v-if="closeIcon.type === 'custom'" />
-            <el-icon v-bind="closeIcon.attrs" v-else-if="closeIcon.type === 'el'">
-              <component :is="closeIcon.icon" />
-            </el-icon>
-            <i :class="['icon iconfont', 'icon-' + closeIcon.icon]" v-bind="closeIcon.attrs"
-              v-else-if="closeIcon.type === 'iconfont'" />
-            <i :class="closeIcon.type" v-bind="closeIcon.attrs" v-else>{{ closeIcon.icon }}</i>
-          </template>
+        <div class="icon-box" @click.stop="deleteListOne(item, index); pop = false;" v-if="dataList.length > 1">
+          <Icon :iconObj="closeIcon" v-if="closeIcon && (closeIcon.icon || closeIcon.type)" />
         </div>
       </div>
+      <!-- 右键菜单 -->
       <div class="tabs-pop" :style="{ left: popX + 'px', top: popY + 'px' }" v-if="pop">
         <div :class="['tabs-pop-item', popMsg.data.path === activeMenu.path ? '' : 'dis']"
           @click="popMsg.data.path === activeMenu.path ? popThing(1) : null">
@@ -125,19 +101,12 @@
       </div>
     </div>
     <div :class="['go-right', goRightDis ? 'is-dis' : '']" @click="goRightDis ? null : moveStep()" v-if="needPager">
-      <template v-if="rightIcon && (rightIcon.icon || rightIcon.type)">
-        <component :is="rightIcon.icon" v-bind="rightIcon.attrs" v-if="rightIcon.type === 'custom'" />
-        <el-icon v-bind="rightIcon.attrs" v-else-if="rightIcon.type === 'el'">
-          <component :is="rightIcon.icon" />
-        </el-icon>
-        <i :class="['icon iconfont', 'icon-' + rightIcon.icon]" v-bind="rightIcon.attrs"
-          v-else-if="rightIcon.type === 'iconfont'" />
-        <i :class="rightIcon.type" v-bind="rightIcon.attrs" v-else>{{ rightIcon.icon }}</i>
-      </template>
+      <Icon :iconObj="rightIcon" v-if="rightIcon && (rightIcon.icon || rightIcon.type)" />
     </div>
   </div>
 </template>
 <script setup>
+import Icon from "./components/icon.vue";
 const emit = defineEmits(['reloadPage']);
 const props = defineProps({
   // tab样式类型
