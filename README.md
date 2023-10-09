@@ -1,4 +1,8 @@
 # 多页签组件（vue3版）
+***vue3版本***
+
+## 预览
+	clone项目后npm run preview即可
 
 ## 安装
 	npm i vue-tabs-plus
@@ -40,8 +44,8 @@
 	单项字段说明：会自动读取vue-router中的route对象
 	标题：route.meta.title
 	补充标题（会拼到标题后面，方便区分multiple时的项）：route.query.tabsSupTit
-	name值：route.name
-	path值：route.fullPath
+	name值（默认状态下的重复唯一值校验）：route.name
+	path值（multiple状态下的重复唯一值校验；跳转相关事件都是以该字段进行跳转）：route.fullPath
 	icon：route.name.icon<{type:x,icon:x,attrs:x}>
 	//
 	// attrs的值会v-bind到对应dom上
@@ -53,6 +57,9 @@
 	//
 
 * `type`：tab样式类型-->String;非必传;默认*button*
+>
+	只能为button/chrome
+>
 
 * `i18n`：标题是否开启国际化-->Boolean;非必传;默认*false*
 

@@ -4,7 +4,7 @@
 */
 /*
  * @LastEditors: aFei
- * @LastEditTime: 2023-06-29 17:51:01
+ * @LastEditTime: 2023-10-09 15:30:04
 */
 <template>
   <div :class="['vue-tabs-plus', type !== 'button' ? 'chrome-tab' : '']">
@@ -421,12 +421,16 @@ const addListOne = (routeObj) => {
     path: routeObj.fullPath,
     icon: routeObj.meta.icon,
   };
-  if (dataList.value.findIndex(item => {
+  console.log(lin, 'lin');
+  const index = dataList.value.findIndex(item => {
     return props.multiple ? item.path === lin.path : item.name === lin.name;
-  }) === -1) {
+  });
+  if (index === -1) {
     dataList.value.push(lin);
     changeActive(lin);
   } else {
+    // 实时更新数据
+    dataList.value[index] = { ...lin };
     changeActive(lin, false);
   }
 };
