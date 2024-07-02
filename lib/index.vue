@@ -1,10 +1,10 @@
 /*
- * @Author: aFei
- * @Date: 2023-02-09 16:27:24
+* @Author: aFei
+* @Date: 2023-02-09 16:27:24
 */
 /*
  * @LastEditors: aFei
- * @LastEditTime: 2023-10-09 15:30:04
+ * @LastEditTime: 2024-07-02 10:29:02
 */
 <template>
   <div :class="['vue-tabs-plus', type !== 'button' ? 'chrome-tab' : '']">
@@ -415,7 +415,7 @@ const popThing = (type) => {
 // 添加一条数据
 const addListOne = (routeObj) => {
   const lin = {
-    label: routeObj.meta.title,
+    label: routeObj.query.diyTitle || routeObj.meta.title,
     supLabel: routeObj.query.tabsSupTit || '',
     name: routeObj.name,
     path: routeObj.fullPath,

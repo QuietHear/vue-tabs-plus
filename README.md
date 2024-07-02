@@ -43,7 +43,8 @@
 ## 1. 参数
 	单项字段说明：会自动读取vue-router中的route对象
 	标题：route.meta.title
-	补充标题（会拼到标题后面，方便区分multiple时的项）：route.query.tabsSupTit
+	自定义标题（优先级高于标题，受i18n影响，常用例如：新增/编辑页，如果路由有权限影响，建议创建两个路由即可，如果不在乎权限可以使用该字段替换原固定标题）：route.query.diyTitle
+	补充标题（会拼到标题后面，方便区分multiple时的项，不受i18n影响）：route.query.tabsSupTit
 	name值（默认状态下的重复唯一值校验）：route.name
 	path值（multiple状态下的重复唯一值校验；跳转相关事件都是以该字段进行跳转）：route.fullPath
 	icon：route.name.icon<{type:x,icon:x,attrs:x}>

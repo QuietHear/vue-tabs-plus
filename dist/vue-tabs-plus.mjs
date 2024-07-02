@@ -135,19 +135,19 @@ const be = ["title", "onClick", "onContextmenu"], we = { class: "text-box" }, ke
         a === 0 ? (t.btnMoveX = 0, t.chromeMoveX = 0) : (t.btnMoveX = n.value[a - 1].btnMoveX + e[a].clientWidth + 12, t.chromeMoveX = n.value[a - 1].chromeMoveX + e[a].clientWidth);
       }), $ = u.value.clientWidth - 20, M = 0, E = 0, e.forEach((t, a) => {
         E += t.clientWidth, M += t.clientWidth + 2, a !== 0 && (M += 10);
-      }), H();
-    }, H = () => {
-      S.value = $ < (m.type === "button" ? M : E), D = (m.type === "button" ? M : E) - $, A = D / m.stepPercentage, S.value ? (u.value.scrollLeft = n.value.filter((e) => e.path === v.value.path)[0][m.type === "button" ? "btnMoveX" : "chromeMoveX"], Z(), x.value || u.value.addEventListener("wheel", T), x.value = !0) : (x.value && u.value.removeEventListener("wheel", T), x.value = !1);
+      }), T();
+    }, T = () => {
+      S.value = $ < (m.type === "button" ? M : E), D = (m.type === "button" ? M : E) - $, A = D / m.stepPercentage, S.value ? (u.value.scrollLeft = n.value.filter((e) => e.path === v.value.path)[0][m.type === "button" ? "btnMoveX" : "chromeMoveX"], Z(), x.value || u.value.addEventListener("wheel", H), x.value = !0) : (x.value && u.value.removeEventListener("wheel", H), x.value = !1);
     };
     z(
       () => m.type,
-      () => H()
+      () => T()
     );
     const Z = () => {
       W.value = u.value.scrollLeft === 0, X.value = u.value.scrollLeft === D;
     }, y = (e = !0) => {
       u.value.scrollLeft = u.value.scrollLeft + (e ? A : -A), Z();
-    }, T = (e) => {
+    }, H = (e) => {
       c.value = !1, e.wheelDelta ? e.wheelDelta > 0 ? y(!1) : e.wheelDelta < 0 && y() : e.detail && (e.wheelDelta < 0 ? y(!1) : e.wheelDelta > 0 && y());
     }, c = d(!1);
     z(
@@ -187,7 +187,7 @@ const be = ["title", "onClick", "onContextmenu"], we = { class: "text-box" }, ke
       }
     }, K = (e) => {
       const t = {
-        label: e.meta.title,
+        label: e.query.diyTitle || e.meta.title,
         supLabel: e.query.tabsSupTit || "",
         name: e.name,
         path: e.fullPath,
@@ -201,12 +201,12 @@ const be = ["title", "onClick", "onContextmenu"], we = { class: "text-box" }, ke
     }, _ = (e, t = !0) => {
       v.value = k(e), t ? V(() => {
         g();
-      }) : H();
+      }) : T();
     };
     return sessionStorage.getItem("_VUETABSARR_") && (n.value = ie(sessionStorage.getItem("_VUETABSARR_"))), K(R), de(() => {
       g(), window.addEventListener("resize", g);
     }), ve(() => {
-      window.removeEventListener("resize", g), document.body.removeEventListener("click", U), sessionStorage.removeItem("_VUETABSARR_"), x.value && u.value.removeEventListener("wheel", T);
+      window.removeEventListener("resize", g), document.body.removeEventListener("click", U), sessionStorage.removeItem("_VUETABSARR_"), x.value && u.value.removeEventListener("wheel", H);
     }), N({ dealSize: g }), (e, t) => (s(), p("div", {
       class: f(["vue-tabs-plus", l.type !== "button" ? "chrome-tab" : ""])
     }, [
