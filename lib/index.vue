@@ -3,8 +3,8 @@
 * @Date: 2023-02-09 16:27:24
 */
 /*
- * @LastEditors: aFei
- * @LastEditTime: 2024-07-02 10:29:02
+* @LastEditors: aFei
+* @LastEditTime: 2024-08-09 11:03:51
 */
 <template>
   <div :class="['vue-tabs-plus', type !== 'button' ? 'chrome-tab' : '']">
@@ -113,6 +113,9 @@ const props = defineProps({
   type: {
     type: String,
     default: "button",
+    validator(value, props) {
+      return ['button', 'chrome'].includes(value);
+    }
   },
   // 标题是否开启国际化
   i18n: {

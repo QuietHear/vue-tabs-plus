@@ -1,4 +1,4 @@
-import { resolveComponent as re, openBlock as s, createBlock as w, resolveDynamicComponent as ee, normalizeProps as te, mergeProps as B, withCtx as ue, createElementBlock as p, toDisplayString as q, ref as d, watch as z, nextTick as V, onMounted as de, onBeforeUnmount as ve, normalizeClass as f, unref as o, createCommentVNode as b, createElementVNode as r, Fragment as he, renderList as fe, withModifiers as ae, normalizeStyle as pe, createTextVNode as O, createStaticVNode as J } from "vue";
+import { resolveComponent as re, openBlock as s, createBlock as w, resolveDynamicComponent as ee, normalizeProps as te, mergeProps as B, withCtx as ue, createElementBlock as p, toDisplayString as q, ref as d, watch as z, nextTick as V, onMounted as de, onBeforeUnmount as ve, normalizeClass as f, unref as o, createCommentVNode as b, createElementVNode as r, Fragment as he, renderList as fe, withModifiers as ae, normalizeStyle as pe, createTextVNode as N, createStaticVNode as J } from "vue";
 import { useRoute as me, useRouter as ge } from "vue-router";
 const P = {
   __name: "icon",
@@ -9,7 +9,7 @@ const P = {
     }
   },
   setup(l) {
-    return (N, Y) => {
+    return (L, Y) => {
       const m = re("el-icon");
       return l.iconObj.type === "custom" ? (s(), w(ee(l.iconObj.icon), te(B({ key: 0 }, l.iconObj.attrs)), null, 16)) : l.iconObj.type === "el" ? (s(), w(m, te(B({ key: 1 }, l.iconObj.attrs)), {
         default: ue(() => [
@@ -56,7 +56,10 @@ const be = ["title", "onClick", "onContextmenu"], we = { class: "text-box" }, ke
     // tab样式类型
     type: {
       type: String,
-      default: "button"
+      default: "button",
+      validator(l, L) {
+        return ["button", "chrome"].includes(l);
+      }
     },
     // 标题是否开启国际化
     i18n: {
@@ -96,16 +99,16 @@ const be = ["title", "onClick", "onContextmenu"], we = { class: "text-box" }, ke
     }
   },
   emits: ["reloadPage"],
-  setup(l, { expose: N, emit: Y }) {
-    const m = l, R = me(), L = ge(), le = (e, t) => {
+  setup(l, { expose: L, emit: Y }) {
+    const m = l, R = me(), x = ge(), le = (e, t) => {
       let a = e.matches || e.webkitMatchesSelector || e.mozMatchesSelector || e.msMatchesSelector;
       for (; e && !a.call(e, t); )
         e = e.parentElement;
       return e;
     }, ne = (e, t) => {
       let a = [], h = (j) => {
-        j.forEach((I) => {
-          oe(I, t) && a.push(I), I.childNodes && I.childNodes.length > 0 && h(I.childNodes);
+        j.forEach((O) => {
+          oe(O, t) && a.push(O), O.childNodes && O.childNodes.length > 0 && h(O.childNodes);
         });
       };
       return h(e.childNodes), a;
@@ -126,18 +129,18 @@ const be = ["title", "onClick", "onContextmenu"], we = { class: "text-box" }, ke
         K(R);
       }
     );
-    const v = d({}), S = d(!1), x = d(!1), W = d(!1), X = d(!1);
-    let M = 0, E = 0, $ = 0, D = 0, A = 0;
+    const v = d({}), S = d(!1), M = d(!1), W = d(!1), X = d(!1);
+    let C = 0, E = 0, $ = 0, D = 0, A = 0;
     const u = d(null), g = () => {
       c.value = !1;
       const e = ne(u.value, "item");
       n.value.forEach((t, a) => {
         a === 0 ? (t.btnMoveX = 0, t.chromeMoveX = 0) : (t.btnMoveX = n.value[a - 1].btnMoveX + e[a].clientWidth + 12, t.chromeMoveX = n.value[a - 1].chromeMoveX + e[a].clientWidth);
-      }), $ = u.value.clientWidth - 20, M = 0, E = 0, e.forEach((t, a) => {
-        E += t.clientWidth, M += t.clientWidth + 2, a !== 0 && (M += 10);
+      }), $ = u.value.clientWidth - 20, C = 0, E = 0, e.forEach((t, a) => {
+        E += t.clientWidth, C += t.clientWidth + 2, a !== 0 && (C += 10);
       }), T();
     }, T = () => {
-      S.value = $ < (m.type === "button" ? M : E), D = (m.type === "button" ? M : E) - $, A = D / m.stepPercentage, S.value ? (u.value.scrollLeft = n.value.filter((e) => e.path === v.value.path)[0][m.type === "button" ? "btnMoveX" : "chromeMoveX"], Z(), x.value || u.value.addEventListener("wheel", H), x.value = !0) : (x.value && u.value.removeEventListener("wheel", H), x.value = !1);
+      S.value = $ < (m.type === "button" ? C : E), D = (m.type === "button" ? C : E) - $, A = D / m.stepPercentage, S.value ? (u.value.scrollLeft = n.value.filter((e) => e.path === v.value.path)[0][m.type === "button" ? "btnMoveX" : "chromeMoveX"], Z(), M.value || u.value.addEventListener("wheel", H), M.value = !0) : (M.value && u.value.removeEventListener("wheel", H), M.value = !1);
     };
     z(
       () => m.type,
@@ -163,7 +166,7 @@ const be = ["title", "onClick", "onContextmenu"], we = { class: "text-box" }, ke
       i.value.data = k(e), i.value.index = t, F.value = event.pageX + 120 > document.body.clientWidth ? document.body.clientWidth - 120 : event.pageX, G.value = event.pageY, c.value = !0;
     }, U = () => {
       le(event.target, ".tabs-pop") === null && (c.value = !1);
-    }, C = (e) => {
+    }, I = (e) => {
       switch (e) {
         case 1:
           c.value = !1, Y("reloadPage");
@@ -172,15 +175,15 @@ const be = ["title", "onClick", "onContextmenu"], we = { class: "text-box" }, ke
           c.value = !1, Q(i.value.data, i.value.index);
           break;
         case 3:
-          n.value = [k(i.value.data)], c.value = !1, n.value.findIndex((t) => t.path === v.value.path) === -1 && L.push(i.value.data.path);
+          n.value = [k(i.value.data)], c.value = !1, n.value.findIndex((t) => t.path === v.value.path) === -1 && x.push(i.value.data.path);
           break;
         case 4:
-          n.value = k(n.value.slice(i.value.index)), n.value.findIndex((t) => t.path === v.value.path) === -1 ? (c.value = !1, L.push(i.value.data.path)) : V(() => {
+          n.value = k(n.value.slice(i.value.index)), n.value.findIndex((t) => t.path === v.value.path) === -1 ? (c.value = !1, x.push(i.value.data.path)) : V(() => {
             g();
           });
           break;
         case 5:
-          n.value = k(n.value.slice(0, i.value.index + 1)), n.value.findIndex((t) => t.path === v.value.path) === -1 ? (c.value = !1, L.push(i.value.data.path)) : V(() => {
+          n.value = k(n.value.slice(0, i.value.index + 1)), n.value.findIndex((t) => t.path === v.value.path) === -1 ? (c.value = !1, x.push(i.value.data.path)) : V(() => {
             g();
           });
           break;
@@ -196,7 +199,7 @@ const be = ["title", "onClick", "onContextmenu"], we = { class: "text-box" }, ke
       a === -1 ? (n.value.push(t), _(t)) : (n.value[a] = { ...t }, _(t, !1));
     }, Q = (e, t) => {
       n.value.splice(t, 1), V(() => {
-        e.path === v.value.path ? L.push(n.value[t === n.value.length ? t - 1 : t].path) : g();
+        e.path === v.value.path ? x.push(n.value[t === n.value.length ? t - 1 : t].path) : g();
       });
     }, _ = (e, t = !0) => {
       v.value = k(e), t ? V(() => {
@@ -206,8 +209,8 @@ const be = ["title", "onClick", "onContextmenu"], we = { class: "text-box" }, ke
     return sessionStorage.getItem("_VUETABSARR_") && (n.value = ie(sessionStorage.getItem("_VUETABSARR_"))), K(R), de(() => {
       g(), window.addEventListener("resize", g);
     }), ve(() => {
-      window.removeEventListener("resize", g), document.body.removeEventListener("click", U), sessionStorage.removeItem("_VUETABSARR_"), x.value && u.value.removeEventListener("wheel", H);
-    }), N({ dealSize: g }), (e, t) => (s(), p("div", {
+      window.removeEventListener("resize", g), document.body.removeEventListener("click", U), sessionStorage.removeItem("_VUETABSARR_"), M.value && u.value.removeEventListener("wheel", H);
+    }), L({ dealSize: g }), (e, t) => (s(), p("div", {
       class: f(["vue-tabs-plus", l.type !== "button" ? "chrome-tab" : ""])
     }, [
       o(S) ? (s(), p("div", {
@@ -229,7 +232,7 @@ const be = ["title", "onClick", "onContextmenu"], we = { class: "text-box" }, ke
           class: f(["item", a.path === o(v).path ? "active" : ""]),
           title: (l.i18n ? e.$t(a.label) : a.label) + a.supLabel,
           key: h,
-          onClick: (j) => a.path === o(v).path ? null : o(L).push(a.path),
+          onClick: (j) => a.path === o(v).path ? null : o(x).push(a.path),
           onContextmenu: ae((j) => ce(a, h), ["prevent"])
         }, [
           a.icon && (a.icon.icon || a.icon.type) ? (s(), w(P, {
@@ -258,38 +261,38 @@ const be = ["title", "onClick", "onContextmenu"], we = { class: "text-box" }, ke
         }, [
           r("div", {
             class: f(["tabs-pop-item", o(i).data.path === o(v).path ? "" : "dis"]),
-            onClick: t[1] || (t[1] = (a) => o(i).data.path === o(v).path ? C(1) : null)
+            onClick: t[1] || (t[1] = (a) => o(i).data.path === o(v).path ? I(1) : null)
           }, [
             ye,
-            O(" 重新加载 ")
+            N(" 重新加载 ")
           ], 2),
           r("div", {
             class: f(["tabs-pop-item", o(n).length === 1 ? "dis" : ""]),
-            onClick: t[2] || (t[2] = (a) => C(2))
+            onClick: t[2] || (t[2] = (a) => I(2))
           }, [
             Le,
-            O(" 关闭当前 ")
+            N(" 关闭当前 ")
           ], 2),
           r("div", {
             class: f(["tabs-pop-item", o(n).length === 1 ? "dis" : ""]),
-            onClick: t[3] || (t[3] = (a) => C(3))
+            onClick: t[3] || (t[3] = (a) => I(3))
           }, [
             xe,
-            O(" 关闭其他 ")
+            N(" 关闭其他 ")
           ], 2),
           r("div", {
             class: f(["tabs-pop-item", o(i).index === 0 ? "dis" : ""]),
-            onClick: t[4] || (t[4] = (a) => C(4))
+            onClick: t[4] || (t[4] = (a) => I(4))
           }, [
             Me,
-            O(" 关闭左侧 ")
+            N(" 关闭左侧 ")
           ], 2),
           r("div", {
             class: f(["tabs-pop-item", o(i).index === o(n).length - 1 ? "dis" : ""]),
-            onClick: t[5] || (t[5] = (a) => C(5))
+            onClick: t[5] || (t[5] = (a) => I(5))
           }, [
             Ce,
-            O(" 关闭右侧 ")
+            N(" 关闭右侧 ")
           ], 2)
         ], 4)) : b("", !0)
       ], 512),
@@ -307,8 +310,8 @@ const be = ["title", "onClick", "onContextmenu"], we = { class: "text-box" }, ke
   }
 }, Oe = [Ie], Ne = {
   install(l) {
-    Oe.forEach((N) => {
-      l.component("vueTabsPlus", N);
+    Oe.forEach((L) => {
+      l.component("vueTabsPlus", L);
     });
   }
 };
