@@ -4,7 +4,7 @@
 */
 /*
  * @LastEditors: aFei
- * @LastEditTime: 2024-10-12 17:10:44
+ * @LastEditTime: 2024-10-12 17:18:55
 */
 <template>
   <div :class="['vue-tabs-plus', type !== 'button' ? 'chrome-tab' : '']">
@@ -198,7 +198,7 @@ const deepCopy = (obj) => {
     }
     return result;
   } else {
-    return obj
+    return obj;
   }
 };
 const encData = (data) => {
