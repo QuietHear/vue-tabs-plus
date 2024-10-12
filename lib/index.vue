@@ -3,8 +3,8 @@
 * @Date: 2023-02-09 16:27:24
 */
 /*
-* @LastEditors: aFei
-* @LastEditTime: 2024-08-09 11:03:51
+ * @LastEditors: aFei
+ * @LastEditTime: 2024-10-12 17:10:44
 */
 <template>
   <div :class="['vue-tabs-plus', type !== 'button' ? 'chrome-tab' : '']">
@@ -191,11 +191,15 @@ const hasClass = (ele, className) => {
   return ele.classList ? ele.classList.contains(className) : new RegExp('\\s' + className + '\\s').test(' ' + ele.className + ' ');
 };
 const deepCopy = (obj) => {
-  let result = obj instanceof Array ? [] : {};
-  for (let key in obj) {
-    result[key] = typeof obj[key] === 'object' ? deepCopy(obj[key]) : obj[key];
+  if (typeof obj === 'object' && !isVNode(obj) && obj !== null && !obj instanceof Date) {
+    let result = obj instanceof Array ? [] : {};
+    for (let key in obj) {
+      result[key] = typeof obj[key] === 'object' && !isVNode(obj[key]) && obj[key] !== null && !obj[key] instanceof Date ? deepCopy(obj[key]) : obj[key];
+    }
+    return result;
+  } else {
+    return obj
   }
-  return result;
 };
 const encData = (data) => {
   return window.btoa(encodeURIComponent(JSON.stringify(data)));
